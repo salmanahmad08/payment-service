@@ -1,4 +1,3 @@
-// src/api/subscriptions/subscriptions.controller.ts
 import {
   Controller,
   Post,
@@ -23,7 +22,7 @@ export class SubscriptionsController {
     @Body() body: CreateSubscriptionDto,
     @Headers('idempotency-key') idempotencyKey?: string,
   ) {
-    // ✅ Check Idempotency header
+    //Check Idempotency header
     if (!idempotencyKey) {
       throw new BadRequestException('Missing Idempotency-Key header');
     }

@@ -45,10 +45,10 @@ export class SubscriptionsService {
     try {
       // ✅ Create Stripe subscription
       const stripeSubscription: Stripe.Subscription =
-        await this.stripe.subscriptions.create(
-          { customer: customerId, items: [{ price: planId }] },
-          { idempotencyKey },
-        );
+        await this.stripe.subscriptions.create({
+          customer: customerId,
+          items: [{ price: planId }],
+        });
 
       const planProvider = process.env.PLAN_PROVIDER || 'stripe';
 

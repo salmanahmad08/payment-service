@@ -16,7 +16,7 @@ export class Transaction {
 
   @Prop({
     required: true,
-    enum: ['success', 'pending', 'failed'], // simple status enum
+    enum: ['success', 'pending', 'failed', 'refunded', 'canceled'], // simple status enum
   })
   status: string;
 
@@ -29,9 +29,10 @@ export class Transaction {
   @Prop()
   providerTxnId?: string;
 
+  @Prop({ required: true })
+  amount: number;
   @Prop()
-  amount?: number;
-
+  refundId?: string;
   @Prop()
   currency?: string;
 
